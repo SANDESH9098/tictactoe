@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-300">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-800 transition-colors duration-300">
+    <!-- Theme Switcher -->
+    <div class="flex justify-end p-4">
+        <button id="theme-toggle" class="text-gray-800 dark:text-gray-200 focus:outline-none">
+            Switch Theme
+        </button>
+    </div>
+
+    <!-- Game Container -->
+    <div class="container mx-auto p-4">
+        <h1 class="text-4xl text-center text-gray-800 dark:text-gray-200 mb-8">Tic Tac Toe</h1>
+        
+        <!-- Game Mode Selector -->
+        <div class="flex justify-center mb-4">
+            <select id="game-mode" class="p-2 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded focus:outline-none">
+                <option value="two-players">Two Players</option>
+                <option value="computer">Play vs Computer</option>
+            </select>
+        </div>
+
+        <!-- Winner Announcement -->
+        <div id="winner-announcement" class="text-center text-2xl text-red-500 dark:text-red-400 mb-4"></div>
+
+        <div class="flex flex-col md:flex-row">
+            <!-- Player X Move History -->
+            <div class="w-full md:w-1/4 p-2">
+                <h2 class="text-xl text-gray-800 dark:text-gray-200 mb-2">Player X Moves</h2>
+                <ul id="playerX-history" class="list-disc pl-5 text-gray-700 dark:text-gray-300"></ul>
+            </div>
+
+            <!-- Game Board -->
+            <div class="w-full md:w-1/2 grid grid-cols-3 gap-4 p-4">
+                <div class="cell bg-white dark:bg-gray-700 h-24 flex items-center justify-center cursor-pointer text-3xl font-bold transition-all duration-300" data-index="0"></div>
+                <div class="cell bg-white dark:bg-gray-700 h-24 flex items-center justify-center cursor-pointer text-3xl font-bold transition-all duration-300" data-index="1"></div>
+                <div class="cell bg-white dark:bg-gray-700 h-24 flex items-center justify-center cursor-pointer text-3xl font-bold transition-all duration-300" data-index="2"></div>
+                <div class="cell bg-white dark:bg-gray-700 h-24 flex items-center justify-center cursor-pointer text-3xl font-bold transition-all duration-300" data-index="3"></div>
+                <div class="cell bg-white dark:bg-gray-700 h-24 flex items-center justify-center cursor-pointer text-3xl font-bold transition-all duration-300" data-index="4"></div>
+                <div class="cell bg-white dark:bg-gray-700 h-24 flex items-center justify-center cursor-pointer text-3xl font-bold transition-all duration-300" data-index="5"></div>
+                <div class="cell bg-white dark:bg-gray-700 h-24 flex items-center justify-center cursor-pointer text-3xl font-bold transition-all duration-300" data-index="6"></div>
+                <div class="cell bg-white dark:bg-gray-700 h-24 flex items-center justify-center cursor-pointer text-3xl font-bold transition-all duration-300" data-index="7"></div>
+                <div class="cell bg-white dark:bg-gray-700 h-24 flex items-center justify-center cursor-pointer text-3xl font-bold transition-all duration-300" data-index="8"></div>
+            </div>
+
+            <!-- Player O Move History -->
+            <div class="w-full md:w-1/4 p-2">
+                <h2 class="text-xl text-gray-800 dark:text-gray-200 mb-2">Player O Moves</h2>
+                <ul id="playerO-history" class="list-disc pl-5 text-gray-700 dark:text-gray-300"></ul>
+            </div>
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="flex justify-center mt-4 space-x-4">
+            <button id="undo-btn" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded focus:outline-none">Undo</button>
+            <button id="redo-btn" class="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded focus:outline-none">Redo</button>
+            <button id="reset-btn" class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded focus:outline-none">Reset Game</button>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="click-sound" src="click.mp3"></audio>
+    <audio id="win-sound" src="win.mp3"></audio>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
